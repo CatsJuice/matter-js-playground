@@ -1,6 +1,8 @@
 const fs = require("fs");
 const path = require("path");
 
+const baseUrl = "https://catsjuice.github.io/matter-js-playground";
+
 const htmlTemplate = fs.readFileSync(
   path.resolve(__dirname, "_template.html"),
   "utf8"
@@ -36,7 +38,7 @@ const htmlOutput = htmlTemplate.replace(/\{\{\s*content\s*\}\}/, linksHtml);
 const readmeOutput = readmeTemplate.replace(
   /\{\{\s*demoList\s*\}\}/,
   links
-    .map(({ filename }) => `- [${filename}](./src/${filename}/index.html)`)
+    .map(({ filename }) => `- [${filename}](${baseUrl}/src/${filename}/index.html)`)
     .join("\n")
 );
 
