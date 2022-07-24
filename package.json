@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "node ./scripts/generate.js"
+    "build": "node ./scripts/generate.js",
+    "commit": "git add README.md && git add index.html && git commit -m \"chore(README,index.html): Update documentation\""
   },
   "dependencies": {
     "matter-js": "^0.18.0",
