@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "build": "node ./scripts/generate.js"
+  },
   "dependencies": {
     "matter-js": "^0.18.0",
     "p5": "^1.4.2"
