@@ -36,7 +36,7 @@ const htmlOutput = htmlTemplate.replace(/\{\{\s*content\s*\}\}/, linksHtml);
 const readmeOutput = readmeTemplate.replace(
   /\{\{\s*demoList\s*\}\}/,
   links
-    .map(({ filename }) => `[${filename}](./src/${filename}/index.html)`)
+    .map(({ filename }) => `- [${filename}](./src/${filename}/index.html)`)
     .join("\n")
 );
 
