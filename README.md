@@ -6,3 +6,4 @@ A playground to learn matter.js
 - [avalanche](https://catsjuice.github.io/matter-js-playground/src/avalanche/index.html)
 - [ballPool](https://catsjuice.github.io/matter-js-playground/src/ballPool/index.html)
 - [bridge](https://catsjuice.github.io/matter-js-playground/src/bridge/index.html)
+- [mobile-gyro](https://catsjuice.github.io/matter-js-playground/src/mobile-gyro/index.html)
