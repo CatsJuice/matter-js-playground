@@ -24,6 +24,7 @@ var render = Render.create({
     height,
     wireframes: false,
     background: "#E5E7E9",
+    pixelRatio: window.devicePixelRatio,
 
     // showAngleIndicator: true,
   },
