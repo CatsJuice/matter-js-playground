@@ -1,7 +1,13 @@
 const fs = require("fs");
 const path = require("path");
 
-const baseUrl = "https://catsjuice.github.io/matter-js-playground";
+const gitPagesBaseUrl = "https://catsjuice.github.io/matter-js-playground";
+const vercelBaseUrl = "https://matter-js-playground.vercel.app";
+
+const targets = [
+  { name: "Git Pages", url: gitPagesBaseUrl },
+  { name: "Vercel", url: vercelBaseUrl },
+];
 
 const htmlTemplate = fs.readFileSync(
   path.resolve(__dirname, "_template.html"),
@@ -35,11 +41,47 @@ const linksHtml = `<ul>\n\t${links
   .join("\n")}\n</ul>`;
 const htmlOutput = htmlTemplate.replace(/\{\{\s*content\s*\}\}/, linksHtml);
 
+// const readmeOutput = readmeTemplate.replace(
+//   /\{\{\s*demoList\s*\}\}/,
+//   targets
+//     .map(({ name, url }) => {
+//       return (
+//         `## Demos on ${name}\n` +
+//         links
+//           .map(
+//             ({ filename }) =>
+//               `- [${filename}](${gitPagesBaseUrl}/src/${filename}/index.html)`
+//           )
+//           .join("\n")
+//       );
+//     })
+//     .join("\n\n")
+// );
+
+const readmeContent = `<table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Git Pages</th>
+        <th>Vercel</th>
+      </tr>
+    </thead>
+    <tbody>
+      ${links
+        .map(
+          ({ filename }) => `<tr>
+        <td><code>${filename}</code></td>
+        <td><a href="${gitPagesBaseUrl}/src/${filename}/index.html">GitPage</a></td>
+        <td><a href="${vercelBaseUrl}/src/${filename}/index.html">Vercel</a></td>
+      </tr>`
+        )
+        .join("\n")}
+    </tbody>
+</table>`;
+
 const readmeOutput = readmeTemplate.replace(
   /\{\{\s*demoList\s*\}\}/,
-  links
-    .map(({ filename }) => `- [${filename}](${baseUrl}/src/${filename}/index.html)`)
-    .join("\n")
+  readmeContent
 );
 
 fs.writeFileSync(htmlOutputPath, htmlOutput);
